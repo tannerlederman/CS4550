@@ -38,15 +38,20 @@ server {
 	#
 	# include snippets/snakeoil.conf;
 
-	server_name tannerlederman.com www.tannerlederman.com hw01.tannerlederman hw01.www.tannerlederman;
-	
 	root /home/tanner/www/main;
 
+	# Add index.php to the list if you are using PHP
 	index index.html;
+
+	server_name tannerlederman.com www.tannerlederman.com;
 
 	location / {
 		# First attempt to serve request as file, then
 		# as directory, then fall back to displaying a 404.
+		try_files $uri $uri/ =404;
+	}
+
+	location /hw01 {
 		try_files $uri $uri/ =404;
 	}
 

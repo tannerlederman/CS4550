@@ -1,0 +1,22 @@
+server {
+	listen 80;
+	listen [::]:80;
+
+	root /home/tanner/hw02/main;
+
+	index index.html;
+
+	server_name hw02.*;
+
+	location / {
+		try_files $uri $uri/ =404;
+	}
+
+	location /animal.html {
+		try_files $uri $uri/ =404;
+	}
+
+	location /calc.html {
+		try_files $uri $uri/ =404;
+	}
+}
